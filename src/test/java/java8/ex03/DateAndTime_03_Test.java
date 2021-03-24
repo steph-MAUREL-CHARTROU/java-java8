@@ -16,13 +16,13 @@ public class DateAndTime_03_Test {
     @Test
     public void test_localTime_of() {
 
-        // TODO créer un objet LocalTime à l'heure 15h24m02s
-        LocalTime result = null;
+        // TODO créer un objet LocalTime à l'heure 15h24m02s // OK
+        LocalTime result = LocalTime.of(15,24, 2);
 
-        // TODO valoriser les différentes variables afin de rendre le test passant
-        int hour = 0;
-        int minutes = 0;
-        int second = 0;
+        // TODO valoriser les différentes variables afin de rendre le test passant//OK
+        int hour = result.getHour();
+        int minutes = result.getMinute();
+        int second = result.getSecond();
 
         assertThat(hour, is(15));
         assertThat(minutes, is(24));
@@ -32,14 +32,14 @@ public class DateAndTime_03_Test {
     @Test
     public void test_localTime_parse() {
 
-        // TODO créer un objet LocalTime à l'heure 09h30m00s à l'aide de la méthode parse
-        LocalTime result = null;
+        // TODO créer un objet LocalTime à l'heure 09h30m00s à l'aide de la méthode parse //OK
+        LocalTime result = LocalTime.parse("09:30:00");
 
 
-        // TODO valoriser les différentes variables afin de rendre le test passant
-        int hour = 0;
-        int minutes = 0;
-        int second = 0;
+        // TODO valoriser les différentes variables afin de rendre le test passant //OK
+        int hour = result.getHour();
+        int minutes = result.getMinute();
+        int second = result.getSecond();
 
         assertThat(hour, is(9));
         assertThat(minutes, is(30));
@@ -49,12 +49,12 @@ public class DateAndTime_03_Test {
     @Test
     public void test_localTime_format() {
 
-        // TODO créer un objet localTime à l'heure 12h00m00s
+        // TODO créer un objet localTime à l'heure 12h00m00s//OK
         // TODO utiliser la méthode of
-        LocalTime localTime = null;
+        LocalTime localTime = LocalTime.of(12, 00, 00);
 
-        // TODO Formatter l'heure pour que le test soit passant
-        String result = null;
+        // TODO Formatter l'heure pour que le test soit passant//OK
+        String result = localTime.format(DateTimeFormatter.ofPattern("HH:mm"));
 
         assertThat(result, is("12:00"));
     }
