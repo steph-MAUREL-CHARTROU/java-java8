@@ -6,8 +6,10 @@ import java8.data.domain.Order;
 import java8.data.domain.Pizza;
 import org.junit.Test;
 
+import java.util.Collection;
 import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.Matchers.*;
@@ -24,8 +26,8 @@ public class Stream_02_Test {
         List<Order> orders = new Data().getOrders();
 
         // Trouver la liste des clients ayant déjà passés une commande
-        List<Customer> result = null;
-
+        List<Customer> result = orders.stream().map(ord -> ord.getCustomer()).distinct().collect(Collectors.toList());
+       
         assertThat(result, hasSize(2));
     }
 }
